@@ -1,0 +1,13 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <app-pokemon-list
+        (pokemonSelected)="onPokemonSelected($event)"
+      ></app-pokemon-list>
+    </div>
+
+    <div class="col-12">
+      <app-pokemon-detail [pokemon]="selectedPokemon"></app-pokemon-detail>
+    </div>
+  </div>
+</div>

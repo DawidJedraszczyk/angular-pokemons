@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row mb-3">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search Pokémon by name..."
+        [(ngModel)]="searchTerm"
+        (input)="filterPokemons()"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let pokemon of filteredPokemons" class="col-md-2 mb-4">
+      <div class="card h-100">
+        <img [src]="pokemon.image" class="card-img-top" [alt]="pokemon.name" />
+        <div class="card-body text-center">
+          <h5 class="card-title text-capitalize">{{ pokemon.name }}</h5>
+          <p><strong>Types:</strong> {{ pokemon.types }}</p>
+          <button class="btn btn-primary" (click)="selectPokemon(pokemon)">
+            Show Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loadingMore" class="text-center mt-3">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+</div>
